@@ -22,6 +22,8 @@ RSpec.describe "shelters creation page", type: :feature do
     fill_in("Shelter Zip:", :with => 80202)
 
     click_button('Create Shelter')
-    expect(current_path).to have_content("/shelters")
+    expect(current_path).not_to have_content("/new")
+    
+    expect(page).to have_content("Joe's Shelter")
   end
 end
