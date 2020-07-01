@@ -4,7 +4,7 @@ class SheltersController < ApplicationController
   end
 
   def show
-    @shelter = Task.find(params[:id])
+    @shelter = Shelter.find(params[:id])
   end
 
 end
