@@ -1,8 +1,12 @@
 <h1>All Shelters</h1>
 
+<h3><a href="shelters/new">New Shelter</a></h3>
+
+<!--
 <% @shelters.each do |shelter| %>
 
   <h3><a href="/shelters/<%= shelter.id %>"><%= shelter.name %></a></h3>
+
   <p><%= shelter.city %></p>
   <a href="/shelters/<%= shelter.id %>/edit">Edit</a>
   <form action="/shelters/<%= shelter.id %>" method="POST">
@@ -10,4 +14,6 @@
     <input type="hidden" name="_method" value="DELETE">
     <input type="submit" value="delete"/>
   </form>
+
 <% end %>
+  -->
