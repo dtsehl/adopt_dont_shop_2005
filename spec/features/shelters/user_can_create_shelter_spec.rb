@@ -9,21 +9,21 @@ RSpec.describe "shelters creation page", type: :feature do
     click_link('New Shelter')
     expect(current_path).to have_content("/shelters/new")
 
-    expect(page).to have_content("Shelter Name:")
-    expect(page).to have_content("Shelter Address:")
-    expect(page).to have_content("Shelter City:")
-    expect(page).to have_content("Shelter State:")
-    expect(page).to have_content("Shelter Zip:")
+    expect(page).to have_content("Name")
+    expect(page).to have_content("Address")
+    expect(page).to have_content("City")
+    expect(page).to have_content("State")
+    expect(page).to have_content("Zip")
 
-    fill_in("Shelter Name:", :with => "Joe's Shelter")
-    fill_in("Shelter Address:", :with => "123 Apple St.")
-    fill_in("Shelter City:", :with => "Denver")
-    fill_in("Shelter State:", :with => "CO")
-    fill_in("Shelter Zip:", :with => 80202)
+    fill_in("Name", :with => "Joe's Shelter")
+    fill_in("Address", :with => "123 Apple St.")
+    fill_in("City", :with => "Denver")
+    fill_in("State", :with => "CO")
+    fill_in("Zip", :with => 80202)
 
     click_button('Create Shelter')
     expect(current_path).not_to have_content("/new")
-    
+
     expect(page).to have_content("Joe's Shelter")
   end
 end
