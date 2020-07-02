@@ -1,24 +1,27 @@
 require 'rails_helper'
 
-RSpec.describe "shelters detail page", type: :feature do
-  it "can see the details of a particular shelter" do
+RSpec.describe "Shelter Edit" do
+  it "can edit details of a particular shelter" do
     shelter_1 = Shelter.create(name: "Joe's Shelter", address: "123 Apple St.", city: "Denver", state: "CO", zip: 80202, id: 1)
-    shelter_2 = Shelter.create(name: "Denny's Shelter", address: "456 Main Ave.", city: "New York", state: "NY", zip: 10001, id: 2)
 
     visit "/shelters/#{shelter_1.id}"
 
-    expect(page).to have_content("Shelter Name: #{shelter_1.name}")
-    expect(page).to have_content("Shelter Address: #{shelter_1.address}")
-    expect(page).to have_content("Shelter City: #{shelter_1.city}")
-    expect(page).to have_content("Shelter State: #{shelter_1.state}")
-    expect(page).to have_content("Shelter Zip: #{shelter_1.zip}")
+    expect(page).to_not have_content("Bob")
+    expect(page).to have_content("Update Shelter")
 
-    visit "/shelters/#{shelter_2.id}"
+    click_on "Update Shelter"
 
-    expect(page).to have_content("Shelter Name: #{shelter_2.name}")
-    expect(page).to have_content("Shelter Address: #{shelter_2.address}")
-    expect(page).to have_content("Shelter City: #{shelter_2.city}")
-    expect(page).to have_content("Shelter State: #{shelter_2.state}")
-    expect(page).to have_content("Shelter Zip: #{shelter_2.zip}")
+    expect(current_path).to eq("/shelters/#{shelter_1.id}/edit")
+
+    fill_in :name, with: "Bob's Shelter"
+    fill_in :address, with: "222 Nowhere Pl."
+    fill_in :city, with: "Jacksonville"
+    fill_in :state, with: "FL"
+    fill_in :zip, with: 20002
+
+    click_on "Submit"
+
+    expect(current_path).to eq("/shelters/#{shelter_1.id}")
+    expect(page).to have_content("Bob's Shelter")
   end
 end
