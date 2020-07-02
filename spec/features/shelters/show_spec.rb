@@ -5,7 +5,7 @@ RSpec.describe "shelters detail page", type: :feature do
     shelter_1 = Shelter.create(name: "Joe's Shelter", address: "123 Apple St.", city: "Denver", state: "CO", zip: 80202, id: 1)
     shelter_2 = Shelter.create(name: "Denny's Shelter", address: "456 Main Ave.", city: "New York", state: "NY", zip: 10001, id: 2)
 
-    visit "/shelters/1"
+    visit "/shelters/#{shelter_1.id}"
 
     expect(page).to have_content("Shelter Name: #{shelter_1.name}")
     expect(page).to have_content("Shelter Address: #{shelter_1.address}")
@@ -13,7 +13,7 @@ RSpec.describe "shelters detail page", type: :feature do
     expect(page).to have_content("Shelter State: #{shelter_1.state}")
     expect(page).to have_content("Shelter Zip: #{shelter_1.zip}")
 
-    visit "/shelters/2"
+    visit "/shelters/#{shelter_2.id}"
 
     expect(page).to have_content("Shelter Name: #{shelter_2.name}")
     expect(page).to have_content("Shelter Address: #{shelter_2.address}")
