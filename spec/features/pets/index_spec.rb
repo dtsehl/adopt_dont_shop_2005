@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe 'When I visit the pet index page' do
-  it "should display a list of all pets with their details" do
+RSpec.describe 'pets index page' do
+  it "displays a list of all pets with their details" do
     shelter_1 = Shelter.create(name: "Joe's Shelter", address: "123 Apple St.", city: "Denver", state: "CO", zip: 80202)
     shelter_2 = Shelter.create(name: "Denny's Shelter", address: "456 Main Ave.", city: "New York", state: "NY", zip: 10001)
     dog_1 = Pet.create(image: "/Users/dan/turing/2module/adopt_dont_shop_2005/app/assets/images/afghanhound_dog_pictures_.jpg", name: "Fido", approx_age: 3, sex: "F", shelter_name: shelter_1.name)
