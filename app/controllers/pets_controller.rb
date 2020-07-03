@@ -3,10 +3,6 @@ class PetsController < ApplicationController
     @pets = Pet.all
   end
 
-  def create
-    Pet.create(pet_params)
-  end
-
   private
 
   def pet_params
