@@ -2,6 +2,7 @@ class PetsController < ApplicationController
   def index
     @pets = Pet.all
     @shelters = Shelter.all
+    @shelter_id = params[:shelter_id]
   end
 
   def show
