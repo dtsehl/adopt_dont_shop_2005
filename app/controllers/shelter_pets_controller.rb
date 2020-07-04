@@ -1,12 +1,11 @@
 class ShelterPetsController < ApplicationController
   def index
     @pets = Pet.all
+    @shelter_id = params[:shelter_id]
   end
 
-  private
-
-  def shelter_pet_params
-    params.permit(:name, :image, :approx_age, :sex, :shelter_name)
+  def new
+    @shelter_id = params[:shelter_id]
   end
 
 end
