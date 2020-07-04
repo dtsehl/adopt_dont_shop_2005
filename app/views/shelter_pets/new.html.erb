@@ -1,6 +1,8 @@
 <h2>Enter a new Pet:</h2>
 
   <%= form_tag "/shelters/#{@shelter_id}/pets", method: :post do %>
+    <%= label_tag :image_link %>
+    <%= text_field_tag :image %><br>
     <%= label_tag :name %>
     <%= text_field_tag :name %><br>
     <%= label_tag :description %>

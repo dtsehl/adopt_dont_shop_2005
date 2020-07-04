@@ -1,6 +1,7 @@
 <h1>Pets That Belong to This Shelter</h1>
 
 <% @pets.each do |pet| %>
+  <%= image_tag(pet.image, alt: pet.name) %>
   <p><%= pet.name %></p>
   <p><%= pet.sex %></p>
   <p> <%= pet.approx_age %></p>
