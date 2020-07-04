@@ -7,8 +7,6 @@ RSpec.describe "pets detail page", type: :feature do
 
     visit "/pets/#{pet_1.id}"
 
-    save_and_open_page
-
     expect(page).to have_content(pet_1.name)
     expect(page).to have_content(pet_1.description)
     expect(page).to have_content(pet_1.approx_age)
