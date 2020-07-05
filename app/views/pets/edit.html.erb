@@ -1,3 +1,6 @@
+<header><%= link_to "All Pets", "/pets" %><br>
+<%= link_to "All Shelters", "/shelters" %></header>
+
 <h1>Edit <%= @pet.name %> </h1>
 
 <%= form_tag "/pets/#{@pet.id}", method: :patch do %>
@@ -11,6 +14,5 @@
   <%= text_field_tag :approx_age %><br>
   <%= label_tag :sex %>
   <%= text_field_tag :sex %><br>
-
   <%= submit_tag "Update Pet" %>
 <% end %>

@@ -1,6 +1,8 @@
 class PetsController < ApplicationController
   def index
     @pets = Pet.all
+    @shelters = Shelter.all
+    @shelter_id = params[:shelter_id]
   end
 
   def show
@@ -11,6 +13,10 @@ class PetsController < ApplicationController
     shelter = Shelter.find(params[:shelter_id])
     @shelter_id = params[:shelter_id]
     shelter.pets.create(pet_params)
+    pet = Pet.last
+    pet.write_attribute(:shelter_name, shelter.name)
+    pet.write_attribute(:status, true)
+    pet.save
     redirect_to "/shelters/#{@shelter_id}/pets"
   end
 
