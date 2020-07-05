@@ -1,6 +1,10 @@
 # Adopt Don't Shop
 BE Mod 2 Week 1 Solo Project
 
+* For this project, I found the thing I most struggled with was making sure I was doing things in the right order.
+* Also, I do not know if my testing was thorough enough, as I did not use any Model tests.
+* Overall I feel pretty good about the project - I know I need more practice but it wasn't as bad once I got started.
+
 ## Learning Goals
 
 ### Rails
