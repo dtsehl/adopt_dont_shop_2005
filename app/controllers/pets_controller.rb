@@ -15,6 +15,7 @@ class PetsController < ApplicationController
     shelter.pets.create(pet_params)
     pet = Pet.last
     pet.write_attribute(:shelter_name, shelter.name)
+    pet.write_attribute(:status, true)
     pet.save
     redirect_to "/shelters/#{@shelter_id}/pets"
   end
